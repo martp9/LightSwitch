@@ -29,19 +29,12 @@ ipcon.connect(HOST, PORT) # Connect to brickd
 
 def switch_on_1(button_l, button_r, led_l, led_r):
     relay1, relay2 = drelay.get_state()
-    if relay2 and button_l == dbutton.BUTTON_STATE_PRESSED: 
+    if relay2 and button_l == dbutton.BUTTON_STATE_RELEASED:
         drelay.set_selected_state(2, False)
         dbutton.set_selected_led_state(0,True)
-    elif not relay2 and button_l == dbutton.BUTTON_STATE_PRESSED: 
+    elif not relay2 and button_l == dbutton.BUTTON_STATE_RELEASED: 
         drelay.set_selected_state(2,True)
         dbutton.set_selected_led_state(0,False)
-
-    if button_r == dbutton.BUTTON_STATE_RELEASED:
-        drelay.set_selected_state(2, True)
-        sleep(10)
-        drelay.set_selected_state(2, False)
-        off()
-
 
 def switch_on_2(decibel):
     relay1, relay2 = drelay.get_state()
