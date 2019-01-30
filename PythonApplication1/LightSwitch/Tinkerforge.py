@@ -8,9 +8,6 @@ UIDa = "kFD" # Realy
 UIDb = "vxS" # Button
 UIDc = "Fu2" # Sound Pressure Level
 
-# Import
-from time import sleep
-
 # Tinkerforge 
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_dual_button import BrickletDualButton
@@ -48,9 +45,6 @@ def switch_on_2(decibel):
 def off():
     drelay.set_state(False, False)
     dbutton.set_led_state(1,1)  
-
-def waitForMils(ms=1):
-    sleep(ms/1000)
 
 def exit():
     ipcon.disconnect()
