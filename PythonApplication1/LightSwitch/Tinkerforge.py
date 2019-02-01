@@ -66,6 +66,10 @@ if __name__ == "__main__":
     # Register state changed callback to function cb_state_changed
     dbutton.register_callback(dbutton.CALLBACK_STATE_CHANGED, switch_on_1)
 
+    input("Press key to exit\n") # Use input() in Python 3
+    ipcon.disconnect()
+
+
 
 
 
